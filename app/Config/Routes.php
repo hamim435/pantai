@@ -48,15 +48,15 @@ $routes->set404Override();
 // dashboard admin
 
 // PHOTO
-// $routes->get('/photo', 'GalleryPhotoController::index');
-// $routes->add('/photo/create', 'GalleryPhotoController::create');
-// $routes->add('/photo/save', 'GalleryPhotoController::save');
-// $routes->add('/photo/detail/(:any)', 'GalleryPhotoController::detail/$1');
-// $routes->add('/photo/edit/(:num)', 'GalleryPhotoController::edit/$1');
-// $routes->add('/photo/update/(:num)', 'GalleryPhotoController::update/$1');
-// $routes->get('/photo/delete/(:num)', 'GalleryPhotoController::delete/$1');
-// $routes->add('/photo/active/(:num)', 'GalleryPhotoController::active/$1');
-// $routes->add('/photo/deactive/(:num)', 'GalleryPhotoController::deactive/$1');
+$routes->get('/foto', 'GaleriFotoController::index');
+$routes->add('/foto/create', 'GaleriFotoController::create');
+$routes->add('/foto/save', 'GaleriFotoController::save');
+$routes->add('/foto/detail/(:any)', 'GaleriFotoController::detail/$1');
+$routes->add('/foto/edit/(:num)', 'GaleriFotoController::edit/$1');
+$routes->add('/foto/update/(:num)', 'GaleriFotoController::update/$1');
+$routes->get('/foto/delete/(:num)', 'GaleriFotoController::delete/$1');
+$routes->add('/foto/active/(:num)', 'GaleriFotoController::active/$1');
+$routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 
 
 // Video
