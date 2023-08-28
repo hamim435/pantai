@@ -43,7 +43,7 @@ $routes->set404Override();
 // $routes->get('/page-structure', 'ProfileController::StructureOrganization');
 
 
-// $routes->get('/dashboard', 'Home::dashboard');
+$routes->get('/dashboard', 'Home::dashboard');
 
 // dashboard admin
 
@@ -76,8 +76,8 @@ $routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 // $routes->get('/news/delete/(:num)', 'BeritaController::delete/$1');
 
 // Settings
-// $routes->get('/settings', 'PengaturanController::index');
-// $routes->post('/settings/update', 'PengaturanController::update');
+$routes->get('/settings', 'PengaturanController::index');
+$routes->post('/settings/update', 'PengaturanController::update');
 
 // Link
 // $routes->get('/link', 'LinkController::index');
