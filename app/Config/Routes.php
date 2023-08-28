@@ -31,6 +31,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 // landingpage
+$routes->get('/', 'BerandaController::index');
 // $routes->get('/village-history', 'ProfileController::VillageHistory');
 // $routes->get('/vision-mission', 'ProfileController::VisionMission');
 // $routes->get('/regional-potential', 'ProfileController::RegionalPotential');
