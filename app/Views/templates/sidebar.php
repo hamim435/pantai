@@ -9,10 +9,13 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?= base_url('assets/'); ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="<?= base_url('assets/'); ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                    alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"><?= session('nama') ?></a>
+                <a href="#" class="d-block">
+                    <?= session('nama') ?>
+                </a>
             </div>
         </div>
 
@@ -49,7 +52,7 @@
                             </a>
                         </li> -->
                         <li class="nav-item">
-                            <a href="/photo" class="nav-link">
+                            <a href="/foto" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Gallery Foto</p>
                             </a>
@@ -80,7 +83,7 @@
                             Kelola Produk
                         </p>
                     </a>
-            </li>
+                </li>
                 <li class="nav-item">
                     <a href="/link" class="nav-link">
                         <i class="fas fa-link mr-2"></i>
@@ -101,7 +104,7 @@
                     <a href="/kontak" class="nav-link">
                         <i class="far fa-address-book mr-2"></i>
                         <p>
-                            kontak
+                            Kelola Kontak
                         </p>
                     </a>
                 </li>

@@ -88,12 +88,12 @@ $routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 // $routes->get('/link/delete/(:num)', 'LinkController::delete/$1');
 
 // Kontak
-// $routes->get('/kontak', 'KontakController::index');
-// $routes->get('/kontak/create', 'KontakController::create');
-// $routes->post('/kontak/save', 'KontakController::save');
-// $routes->get('/kontak/edit/(:num)', 'KontakController::edit/$1');
-// $routes->post('/kontak/update/(:num)', 'KontakController::update/$1');
-// $routes->get('/kontak/delete/(:num)', 'KontakController::delete/$1');
+$routes->get('/kontak', 'KontakController::index');
+$routes->get('/kontak/create', 'KontakController::create');
+$routes->post('/kontak/save', 'KontakController::save');
+$routes->get('/kontak/edit/(:num)', 'KontakController::edit/$1');
+$routes->post('/kontak/update/(:num)', 'KontakController::update/$1');
+$routes->get('/kontak/delete/(:num)', 'KontakController::delete/$1');
 
 // Produk
 // $routes->get('/produk', 'ProdukController::index');
