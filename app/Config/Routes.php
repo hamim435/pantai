@@ -33,6 +33,7 @@ $routes->set404Override();
 // landingpage
 $routes->get('/', 'BerandaController::index');
 // $routes->get('/village-history', 'ProfileController::VillageHistory');
+// $routes->get('/village-history', 'ProfileController::VillageHistory');
 // $routes->get('/vision-mission', 'ProfileController::VisionMission');
 // $routes->get('/regional-potential', 'ProfileController::RegionalPotential');
 // $routes->get('/page-gallery', 'GalleryPhotoController::page_gallery');
@@ -69,12 +70,12 @@ $routes->post('/pembaharuan/video/(:num)', 'GaleriVideoController::update/$1');
 $routes->get('/hapus/video/(:num)', 'GaleriVideoController::delete/$1');
 
 // News
-// $routes->get('/news', 'BeritaController::index');
-// $routes->get('/news/create', 'BeritaController::create');
-// $routes->post('/news/save', 'BeritaController::save');
-// $routes->get('/news/edit/(:num)', 'BeritaController::edit/$1');
-// $routes->post('/news/update/(:num)', 'BeritaController::update/$1');
-// $routes->get('/news/delete/(:num)', 'BeritaController::delete/$1');
+$routes->get('/berita', 'BeritaController::index');
+$routes->get('/berita/tambah', 'BeritaController::create');
+$routes->post('/berita/simpan', 'BeritaController::save');
+$routes->get('/berita/edit/(:num)', 'BeritaController::edit/$1');
+$routes->post('/berita/ubah/(:num)', 'BeritaController::update/$1');
+$routes->get('/berita/hapus/(:num)', 'BeritaController::delete/$1');
 
 // Settings
 $routes->get('/settings', 'PengaturanController::index');
