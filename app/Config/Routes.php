@@ -36,7 +36,7 @@ $routes->get('/', 'BerandaController::index');
 // $routes->get('/vision-mission', 'ProfileController::VisionMission');
 // $routes->get('/regional-potential', 'ProfileController::RegionalPotential');
 // $routes->get('/page-gallery', 'GalleryPhotoController::page_gallery');
-// $routes->get('/page-video-gallery', 'GaleriVideoController::pageVideoGallery');
+// $routes->get('/page-galeri-video', 'GaleriVideoController::pageVideoGallery');
 // $routes->get('/page-news', 'BeritaController::pageNews');
 // $routes->get('/page-produk', 'ProdukController::pageProduk');
 // $routes->get('/page-news/(:any)', 'BeritaController::pageDetailNews/$1');
@@ -61,12 +61,12 @@ $routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 
 
 // Video
-// $routes->get('/video/gallery', 'GaleriVideoController::index');
-// $routes->get('/video/create', 'GaleriVideoController::create');
-// $routes->post('/video/save', 'GaleriVideoController::save');
-// $routes->get('/video/edit/(:num)', 'GaleriVideoController::edit/$1');
-// $routes->post('/video/update/(:num)', 'GaleriVideoController::update/$1');
-// $routes->get('/video/delete/(:num)', 'GaleriVideoController::delete/$1');
+$routes->get('/galeri/video', 'GaleriVideoController::index');
+$routes->get('/tambah/video', 'GaleriVideoController::create');
+$routes->post('/simpan/video', 'GaleriVideoController::save');
+$routes->get('/ubah/video/(:num)', 'GaleriVideoController::edit/$1');
+$routes->post('/pembaharuan/video/(:num)', 'GaleriVideoController::update/$1');
+$routes->get('/hapus/video/(:num)', 'GaleriVideoController::delete/$1');
 
 // News
 // $routes->get('/news', 'BeritaController::index');
