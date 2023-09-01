@@ -44,7 +44,7 @@ $routes->get('/', 'BerandaController::index');
 // $routes->get('/page-structure', 'ProfileController::StructureOrganization');
 
 
-// $routes->get('/dashboard', 'Home::dashboard');
+$routes->get('/dashboard', 'Home::dashboard');
 
 // dashboard admin
 
@@ -77,8 +77,8 @@ $routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 // $routes->get('/news/delete/(:num)', 'BeritaController::delete/$1');
 
 // Settings
-// $routes->get('/settings', 'PengaturanController::index');
-// $routes->post('/settings/update', 'PengaturanController::update');
+$routes->get('/settings', 'PengaturanController::index');
+$routes->post('/settings/update', 'PengaturanController::update');
 
 // Link
 // $routes->get('/link', 'LinkController::index');
@@ -89,12 +89,12 @@ $routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 // $routes->get('/link/delete/(:num)', 'LinkController::delete/$1');
 
 // Kontak
-// $routes->get('/kontak', 'KontakController::index');
-// $routes->get('/kontak/create', 'KontakController::create');
-// $routes->post('/kontak/save', 'KontakController::save');
-// $routes->get('/kontak/edit/(:num)', 'KontakController::edit/$1');
-// $routes->post('/kontak/update/(:num)', 'KontakController::update/$1');
-// $routes->get('/kontak/delete/(:num)', 'KontakController::delete/$1');
+$routes->get('/kontak', 'KontakController::index');
+$routes->get('/kontak/create', 'KontakController::create');
+$routes->post('/kontak/save', 'KontakController::save');
+$routes->get('/kontak/edit/(:num)', 'KontakController::edit/$1');
+$routes->post('/kontak/update/(:num)', 'KontakController::update/$1');
+$routes->get('/kontak/delete/(:num)', 'KontakController::delete/$1');
 
 // Produk
 // $routes->get('/produk', 'ProdukController::index');
