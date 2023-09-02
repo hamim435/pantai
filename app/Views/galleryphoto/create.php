@@ -40,13 +40,13 @@
                     <?php endif; ?>
 
 
-                    <form action="<?= base_url('/photo/save') ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url('/foto/save') ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field() ?>
                         <div class="row">
                             <div class="col">
                                 <input type="text"
                                     class="form-control <?= (session('errors.judul_foto')) ? 'is-invalid' : '' ?>"
-                                    placeholder="Title Photo" name="judul_foto" value="<?= old('judul_foto') ?>">
+                                    placeholder="Judul Foto" name="judul_foto" value="<?= old('judul_foto') ?>">
                                 <?php if (session('errors.judul_foto')): ?>
                                     <div class="invalid-feedback">
                                         <?= session('errors.judul_foto') ?>
@@ -57,7 +57,7 @@
                                 <input type="file" name="nama_foto"
                                     class="form-control <?= (session('errors.nama_foto')) ? 'is-invalid' : '' ?>">
                                 <!-- tulisan max size di sebelah kiri  -->
-                                <small class="text-muted mt-2">Max Size 2MB</small>
+                                <small class="text-muted mt-2">Ukuran Maksimal 2MB</small>
                                 <?php if (session('errors.nama_foto')): ?>
                                     <div class="invalid-feedback">
                                         <?= session('errors.nama_foto') ?>
@@ -70,7 +70,7 @@
                             <div class="col">
                                 <textarea name="deskripsi"
                                     class="form-control <?= (session('errors.deskripsi')) ? 'is-invalid' : '' ?>"
-                                    placeholder="Description"><?= old('deskripsi') ?></textarea>
+                                    placeholder="Deskripsi Foto"><?= old('deskripsi') ?></textarea>
                                 <?php if (session('errors.deskripsi')): ?>
                                     <div class="invalid-feedback">
                                         <?= session('errors.deskripsi') ?>

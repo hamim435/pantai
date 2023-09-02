@@ -40,7 +40,7 @@
                     <?php endif; ?>
 
 
-                    <form action="<?= base_url('/photo/update/' . $gallery['id']) ?>" method="post"
+                    <form action="<?= base_url('/foto/update/' . $gallery['id']) ?>" method="post"
                         enctype="multipart/form-data">
                         <?= csrf_field() ?>
                         <div class="row">
@@ -80,7 +80,7 @@
                         <div class="row mt-3">
                             <div class="col">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="/photo" class="btn btn-warning">Back</a>
+                                <a href="/foto" class="btn btn-warning">Back</a>
                             </div>
 
                         </div>

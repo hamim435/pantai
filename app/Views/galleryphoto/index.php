@@ -39,7 +39,7 @@
 
                 <div class="card-header">
 
-                    <a href="<?= base_url('/photo/create') ?>" class="btn btn-primary float-left">Tambah Data</a>
+                    <a href="<?= base_url('/foto/create') ?>" class="btn btn-primary float-left">Tambah Data</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -71,22 +71,21 @@
                                         <?= $row['deskripsi'] ?>
                                     </td>
                                     <td>
-                                        <a href="<?= base_url('/photo/edit/' . $row['id']) ?>"
+                                        <a href="<?= base_url('/foto/edit/' . $row['id']) ?>"
                                             class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                        <a href="<?= base_url('/photo/detail/' . $row['judul_foto']) ?> "
+                                        <a href="<?= base_url('/foto/detail/' . $row['judul_foto']) ?> "
                                             class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
-                                        <a href="<?= base_url('/photo/delete/' . $row['id']) ?>"
+                                        <a href="<?= base_url('/foto/delete/' . $row['id']) ?>"
                                             class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin?')"> <i
                                                 class="fas fa-trash"></i></a>
                                     </td>
                                     <td>
                                         <?php if ($row['carousel'] == 0): ?>
-                                            <a href="<?= base_url('photo/active/' . $row['id']) ?>"
-                                                class="btn btn-danger btn-sm"
+                                            <a href="<?= base_url('foto/active/' . $row['id']) ?>" class="btn btn-danger btn-sm"
                                                 onclick="return confirm('Apakah anda yakin ingin merubah carousel?')">
                                                 <i class="fas fa-times"></i></a>
                                         <?php else: ?>
-                                            <a href="<?= base_url('photo/active/' . $row['id']) ?>"
+                                            <a href="<?= base_url('foto/deactive/' . $row['id']) ?>"
                                                 class="btn btn-primary btn-sm"
                                                 onclick="return confirm('Apakah anda yakin menonaktifkan carousel?')"> <i
                                                     class="fas fa-check"></i></a>

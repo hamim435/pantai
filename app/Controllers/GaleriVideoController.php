@@ -179,7 +179,7 @@ class GaleriVideoController extends BaseController
         else {
             // redirect ke halaman index
             session()->setFlashdata('pesan', 'Data Berhasil diubah!');
-            return redirect()->to('/galeri/video');
+            return redirect()->to('/video/galeri');
         }
     }
 
@@ -193,13 +193,13 @@ class GaleriVideoController extends BaseController
         if (!$hapus) {
             // redirect ke halaman create
             session()->setFlashdata('pesan', 'Data Gagal dihapus!');
-            return redirect()->to('/galeri/video');
+            return redirect()->to('/video/galeri');
         }
         // jika berhasil
         else {
             // redirect ke halaman index
             session()->setFlashdata('pesan', 'Data Berhasil dihapus!');
-            return redirect()->to('/galeri/video');
+            return redirect()->to('/video/galeri');
         }
     }
 }

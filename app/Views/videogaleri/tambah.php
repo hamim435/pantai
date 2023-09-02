@@ -32,7 +32,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <!-- form start -->
-                            <form action="/simpan/video" method="post">
+                            <form action="/video/simpan" method="post">
                                 <?= csrf_field(); ?>
                                 <div class="card-body">
                                     <div class="form-group">
@@ -57,7 +57,7 @@
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <a class="btn btn-warning" href="/galeri/video">Kembali</a>
+                                    <a class="btn btn-warning" href="/video">Kembali</a>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
