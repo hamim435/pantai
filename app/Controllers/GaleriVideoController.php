@@ -28,18 +28,18 @@ class GaleriVideoController extends BaseController
     public function pageVideoGallery()
     {
         $video = $this->videoModel->findAll();
-        $pengaturan = $this->pengaturanModel->first();
-        $link = $this->linkModel->getLink();
-        $kontak = $this->kontakModel->first();
+        // $pengaturan = $this->pengaturanModel->first();
+        // $link = $this->linkModel->getLink();
+        // $kontak = $this->kontakModel->first();
         $data = [
             'title' => 'Galeri Video',
             'video' => $video,
-            'pengaturan' => $pengaturan,
-            'link' => $link,
-            'kontak' => $kontak
+            // 'pengaturan' => $pengaturan,
+            // 'link' => $link,
+            // 'kontak' => $kontak
         ];
 
-        return view('landingpage/pagevideogallery', $data);
+        return view('landingpage/pagegalerivideo', $data);
     }
     public function index()
     {

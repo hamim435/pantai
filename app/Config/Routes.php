@@ -37,7 +37,7 @@ $routes->get('/', 'BerandaController::index');
 // $routes->get('/vision-mission', 'ProfileController::VisionMission');
 // $routes->get('/regional-potential', 'ProfileController::RegionalPotential');
 // $routes->get('/page-gallery', 'GalleryPhotoController::page_gallery');
-// $routes->get('/page-galeri-video', 'GaleriVideoController::pageVideoGallery');
+$routes->get('/halaman-galeri-video', 'GaleriVideoController::pageVideoGallery');
 // $routes->get('/page-news', 'BeritaController::pageNews');
 // $routes->get('/page-produk', 'ProdukController::pageProduk');
 // $routes->get('/page-news/(:any)', 'BeritaController::pageDetailNews/$1');
