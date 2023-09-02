@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
     <link rel="stylesheet" href="<?= base_url('assets-lp/'); ?>css/style.css">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
@@ -56,11 +56,11 @@
     </div>
   </div>
     <!-- link that opens popup -->
-<!--     
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
 
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script> -->
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
     <!-- JS here -->
     <script src="<?= base_url('assets-lp/'); ?>js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="<?= base_url('assets-lp/'); ?>js/vendor/jquery-1.12.4.min.js"></script>
