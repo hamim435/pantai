@@ -61,7 +61,7 @@
                 </li>
                 <!-- Gallery Photo Punya Diva -->
                 <li class="nav-item">
-                    <a href="/video/gallery" class="nav-link">
+                    <a href="/video" class="nav-link">
                         <i class="fas fa-video mr-2"></i>
                         <p>
                             Kelola Video
@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/news" class="nav-link">
+                    <a href="/berita" class="nav-link">
                         <i class="fas fa-newspaper mr-2"></i>
                         <p>
                             Kelola Berita

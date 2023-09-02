@@ -38,7 +38,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                        <a class="btn btn-primary" href="/tambah/video">Tambah Data +</a>
+                        <a class="btn btn-primary" href="/video/tambah">Tambah Data +</a>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
@@ -62,8 +62,8 @@
                                                 <?= date("d-m-Y", strtotime($row['created_at'])); ?>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url('/ubah/video/' . $row['id']); ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="<?= base_url('/hapus/video/' . $row['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Berita Ini?')">Delete</a>
+                                                <a href="<?= base_url('/video/ubah/' . $row['id']); ?>" class="btn btn-sm btn-warning">Edit</a>
+                                                <a href="<?= base_url('/video/ubah/' . $row['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Berita Ini?')">Delete</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

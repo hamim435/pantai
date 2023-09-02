@@ -32,7 +32,7 @@ $routes->set404Override();
 
 // landingpage
 $routes->get('/', 'BerandaController::index');
-// $routes->get('/village-history', 'ProfileController::VillageHistory');
+// bahasa Indonesia
 // $routes->get('/village-history', 'ProfileController::VillageHistory');
 // $routes->get('/vision-mission', 'ProfileController::VisionMission');
 // $routes->get('/regional-potential', 'ProfileController::RegionalPotential');
@@ -62,12 +62,12 @@ $routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 
 
 // Video
-$routes->get('/galeri/video', 'GaleriVideoController::index');
-$routes->get('/tambah/video', 'GaleriVideoController::create');
-$routes->post('/simpan/video', 'GaleriVideoController::save');
-$routes->get('/ubah/video/(:num)', 'GaleriVideoController::edit/$1');
-$routes->post('/pembaharuan/video/(:num)', 'GaleriVideoController::update/$1');
-$routes->get('/hapus/video/(:num)', 'GaleriVideoController::delete/$1');
+$routes->get('/video', 'GaleriVideoController::index');
+$routes->get('/video/tambah', 'GaleriVideoController::create');
+$routes->post('/video/simpan', 'GaleriVideoController::save');
+$routes->get('/video/ubah/(:num)', 'GaleriVideoController::edit/$1');
+$routes->post('/video/pembaharuan/(:num)', 'GaleriVideoController::update/$1');
+$routes->get('/video/hapus/(:num)', 'GaleriVideoController::delete/$1');
 
 // News
 $routes->get('/berita', 'BeritaController::index');
@@ -106,9 +106,9 @@ $routes->get('/kontak/delete/(:num)', 'KontakController::delete/$1');
 // $routes->get('/produk/delete/(:num)', 'ProdukController::delete/$1');
 
 // Login
-// $routes->get('/login', 'AuthController::login');
-// $routes->post('/auth/processLogin', 'AuthController::processLogin');
-// $routes->get('/logout', 'AuthController::logout');
+$routes->get('/login', 'AuthController::login');
+$routes->post('/auth/processLogin', 'AuthController::processLogin');
+$routes->get('/logout', 'AuthController::logout');
 
 /*
  * --------------------------------------------------------------------
