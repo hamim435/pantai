@@ -31,11 +31,13 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 // landingpage
+$routes->get('/', 'BerandaController::index');
+// bahasa Indonesia
 // $routes->get('/village-history', 'ProfileController::VillageHistory');
 // $routes->get('/vision-mission', 'ProfileController::VisionMission');
 // $routes->get('/regional-potential', 'ProfileController::RegionalPotential');
 // $routes->get('/page-gallery', 'GalleryPhotoController::page_gallery');
-// $routes->get('/page-video-gallery', 'GaleriVideoController::pageVideoGallery');
+// $routes->get('/page-galeri-video', 'GaleriVideoController::pageVideoGallery');
 // $routes->get('/page-news', 'BeritaController::pageNews');
 // $routes->get('/page-produk', 'ProdukController::pageProduk');
 // $routes->get('/page-news/(:any)', 'BeritaController::pageDetailNews/$1');
@@ -43,7 +45,7 @@ $routes->set404Override();
 // $routes->get('/page-structure', 'ProfileController::StructureOrganization');
 
 
-// $routes->get('/dashboard', 'Home::dashboard');
+$routes->get('/dashboard', 'Home::dashboard');
 
 // dashboard admin
 
@@ -60,24 +62,24 @@ $routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 
 
 // Video
-// $routes->get('/video/gallery', 'GaleriVideoController::index');
-// $routes->get('/video/create', 'GaleriVideoController::create');
-// $routes->post('/video/save', 'GaleriVideoController::save');
-// $routes->get('/video/edit/(:num)', 'GaleriVideoController::edit/$1');
-// $routes->post('/video/update/(:num)', 'GaleriVideoController::update/$1');
-// $routes->get('/video/delete/(:num)', 'GaleriVideoController::delete/$1');
+$routes->get('/video', 'GaleriVideoController::index');
+$routes->get('/video/tambah', 'GaleriVideoController::create');
+$routes->post('/video/simpan', 'GaleriVideoController::save');
+$routes->get('/video/ubah/(:num)', 'GaleriVideoController::edit/$1');
+$routes->post('/video/pembaharuan/(:num)', 'GaleriVideoController::update/$1');
+$routes->get('/video/hapus/(:num)', 'GaleriVideoController::delete/$1');
 
 // News
-// $routes->get('/news', 'BeritaController::index');
-// $routes->get('/news/create', 'BeritaController::create');
-// $routes->post('/news/save', 'BeritaController::save');
-// $routes->get('/news/edit/(:num)', 'BeritaController::edit/$1');
-// $routes->post('/news/update/(:num)', 'BeritaController::update/$1');
-// $routes->get('/news/delete/(:num)', 'BeritaController::delete/$1');
+$routes->get('/berita', 'BeritaController::index');
+$routes->get('/berita/tambah', 'BeritaController::create');
+$routes->post('/berita/simpan', 'BeritaController::save');
+$routes->get('/berita/edit/(:num)', 'BeritaController::edit/$1');
+$routes->post('/berita/ubah/(:num)', 'BeritaController::update/$1');
+$routes->get('/berita/hapus/(:num)', 'BeritaController::delete/$1');
 
 // Settings
-// $routes->get('/settings', 'PengaturanController::index');
-// $routes->post('/settings/update', 'PengaturanController::update');
+$routes->get('/settings', 'PengaturanController::index');
+$routes->post('/settings/update', 'PengaturanController::update');
 
 // Link
 // $routes->get('/link', 'LinkController::index');
@@ -88,12 +90,12 @@ $routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 // $routes->get('/link/delete/(:num)', 'LinkController::delete/$1');
 
 // Kontak
-// $routes->get('/kontak', 'KontakController::index');
-// $routes->get('/kontak/create', 'KontakController::create');
-// $routes->post('/kontak/save', 'KontakController::save');
-// $routes->get('/kontak/edit/(:num)', 'KontakController::edit/$1');
-// $routes->post('/kontak/update/(:num)', 'KontakController::update/$1');
-// $routes->get('/kontak/delete/(:num)', 'KontakController::delete/$1');
+$routes->get('/kontak', 'KontakController::index');
+$routes->get('/kontak/create', 'KontakController::create');
+$routes->post('/kontak/save', 'KontakController::save');
+$routes->get('/kontak/edit/(:num)', 'KontakController::edit/$1');
+$routes->post('/kontak/update/(:num)', 'KontakController::update/$1');
+$routes->get('/kontak/delete/(:num)', 'KontakController::delete/$1');
 
 // Produk
 // $routes->get('/produk', 'ProdukController::index');
@@ -104,9 +106,9 @@ $routes->add('/foto/deactive/(:num)', 'GaleriFotoController::deactive/$1');
 // $routes->get('/produk/delete/(:num)', 'ProdukController::delete/$1');
 
 // Login
-// $routes->get('/login', 'AuthController::login');
-// $routes->post('/auth/processLogin', 'AuthController::processLogin');
-// $routes->get('/logout', 'AuthController::logout');
+$routes->get('/login', 'AuthController::login');
+$routes->post('/auth/processLogin', 'AuthController::processLogin');
+$routes->get('/logout', 'AuthController::logout');
 
 /*
  * --------------------------------------------------------------------

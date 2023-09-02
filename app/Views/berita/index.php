@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Galeri Video</h1>
+                    <h1 class="m-0">Berita</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -27,43 +27,45 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <?php if (session('pesan')) : ?>
-                                <div class="alert alert-success alert-dismissible mt-3">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <?= session('pesan'); ?>
-                                </div>
-                            <?php endif; ?>
-                            <h3 class="card-title">Data Galeri Video</h3><br>
-                            
+                            <h3 class="card-title">Data Berita</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                        <a class="btn btn-primary" href="/video/tambah">Tambah Data +</a>
+                            <a href="/berita/tambah" class="btn btn-primary">Tambah Data +</a>
+                            <?php if (session('success')) : ?>
+                                <div class="alert alert-success alert-dismissible mt-3">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <?= session('success'); ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (session('error')) : ?>
+                                <div class="alert alert-danger alert-dismissible mt-3">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <?= session('error'); ?>
+                                </div>
+                            <?php endif; ?>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Judul Video</th>
-                                        <th>Link</th>
-                                        <th>Tanggal Dibuat</th>
+                                        <th>Judul Berita</th>
+                                        <th>Kategori Berita</th>
+                                        <th>Tanggal dibuat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $no = 1;
-                                    foreach ($video as $row) :
-                                    ?>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($berita as $b) : ?>
                                         <tr>
-                                            <td><?= $no++; ?></td>
-                                            <td><?= $row['judul_video']; ?></td>
-                                            <td><a target="_blank" class="btn btn-link" href="<?= $row['link']; ?>"><?= $row['link']; ?></a></td>
+                                            <td><?= $i++; ?></td>
+                                            <td><?= $b['judul_berita']; ?></td>
+                                            <td><?= $b['kategori_berita']; ?></td>
+                                            <td><?= $b['created_at']; ?></td>
                                             <td>
-                                                <?= date("d-m-Y", strtotime($row['created_at'])); ?>
-                                            </td>
-                                            <td>
-                                                <a href="<?= base_url('/video/ubah/' . $row['id']); ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="<?= base_url('/video/ubah/' . $row['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Berita Ini?')">Delete</a>
+                                                <a href="<?= base_url('/berita/edit/' . $b['id']); ?>" class="btn btn-sm btn-warning">Ubah</a>
+                                                <a href="<?= base_url('/berita/hapus/' . $b['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Berita Ini?')">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -71,9 +73,9 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
-                                        <th>Judul Video</th>
-                                        <th>Link</th>
-                                        <th>Tanggal Dibuat</th>
+                                        <th>Judul Berita</th>
+                                        <th>Kategori Berita</th>
+                                        <th>Tanggal dibuat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </tfoot>
