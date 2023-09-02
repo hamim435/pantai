@@ -46,14 +46,14 @@
                                             <h5 class="card-title mb-2">
                                                 <?= $gallery['judul_foto'] ?>
                                             </h5>
-                                            <p class="card-text"><b>Description:
+                                            <p class="card-text"><b>Deskripsi:
                                                     <?= $gallery['deskripsi'] ?>
                                                 </b></p>
                                             <p class="card-text"><small class="text-muted">Created at :
                                                     <?= $gallery['created_at'] ?>
                                                 </small></p>
                                             <br>
-                                            <a href="/photo"><i class="fas fa-arrow-left"></i> Back</a>
+                                            <a href="/foto"><i class="fas fa-arrow-left"></i> Back</a>
                                         </div>
                                     </div>
                                 </div>

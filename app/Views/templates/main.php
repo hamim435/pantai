@@ -4,16 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= $title; ?></title>
+    <title>
+        <?= $title; ?>
+    </title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet"
+        href="<?= base_url('assets/'); ?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
@@ -26,6 +30,9 @@
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/summernote/summernote-bs4.min.css">
+
+    <!-- leatflet js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
 </head>
 
@@ -48,6 +55,9 @@
     </div>
     <!-- ./wrapper -->
 
+
+    <!-- leatflet.js -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
     <!-- jQuery -->
     <script src="<?= base_url('assets/'); ?>plugins/jquery/jquery.min.js"></script>
@@ -72,7 +82,8 @@
     <script src="<?= base_url('assets/'); ?>plugins/moment/moment.min.js"></script>
     <script src="<?= base_url('assets/'); ?>plugins/daterangepicker/daterangepicker.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="<?= base_url('assets/'); ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script
+        src="<?= base_url('assets/'); ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- Summernote -->
     <script src="<?= base_url('assets/'); ?>plugins/summernote/summernote-bs4.min.js"></script>
     <!-- overlayScrollbars -->
@@ -85,7 +96,7 @@
     <script src="<?= base_url('assets/'); ?>dist/js/pages/dashboard.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#isi, #sejarah_desa, #kalimat_ucapan, #visi, #misi, #deskripsi').summernote();
         });
     </script>
@@ -95,7 +106,7 @@
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     const imagePreview = document.getElementById('image-preview');
                     imagePreview.src = e.target.result;
                 };
