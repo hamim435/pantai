@@ -36,7 +36,7 @@ $routes->get('/', 'BerandaController::index');
 // $routes->get('/village-history', 'ProfileController::VillageHistory');
 // $routes->get('/vision-mission', 'ProfileController::VisionMission');
 // $routes->get('/regional-potential', 'ProfileController::RegionalPotential');
-// $routes->get('/page-gallery', 'GalleryPhotoController::page_gallery');
+$routes->get('/page-gallery', 'GaleriFotoController::page_gallery');
 // $routes->get('/page-galeri-video', 'GaleriVideoController::pageVideoGallery');
 // $routes->get('/page-news', 'BeritaController::pageNews');
 // $routes->get('/page-produk', 'ProdukController::pageProduk');

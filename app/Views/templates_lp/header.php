@@ -34,7 +34,7 @@
                                             </li>
                                             <li><a href="#">Galeri<i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="#">Galeri Foto</a></li>
+                                                    <li><a href="/page-gallery">Galeri Foto</a></li>
                                                     <li><a href="#">Galeri Video</a></li>
                                                     <!-- <li><a href="single-blog.html">single-blog</a></li> -->
                                                 </ul>
