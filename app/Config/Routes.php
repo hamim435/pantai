@@ -33,10 +33,10 @@ $routes->set404Override();
 // landingpage
 $routes->get('/', 'BerandaController::index');
 // bahasa Indonesia
-// $routes->get('/village-history', 'ProfileController::VillageHistory');
+$routes->get('/tentang' , 'BerandaController::page_tentang');
 // $routes->get('/vision-mission', 'ProfileController::VisionMission');
 // $routes->get('/regional-potential', 'ProfileController::RegionalPotential');
-// $routes->get('/page-gallery', 'GalleryPhotoCon;troller::page_gallery');
+$routes->get('/page-gallery', 'GaleriFotoController::page_gallery');
 $routes->get('/halaman-galeri-video', 'GaleriVideoController::pageVideoGallery');
 // $routes->get('/page-news', 'BeritaController::pageNews');
 $routes->get('/halaman-berita', 'BeritaController::pageNews');

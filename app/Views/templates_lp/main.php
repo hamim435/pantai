@@ -82,32 +82,6 @@
     <script src="<?= base_url('assets-lp/'); ?>js/plugins.js"></script>
     <script src="<?= base_url('assets-lp/'); ?>js/gijgo.min.js"></script>
     <script src="<?= base_url('assets-lp/'); ?>js/slick.min.js"></script>
-   
-
-  <script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
-
-  <script src="<?= base_url('assets-lp/'); ?>js/vendor/modernizr-3.5.0.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/vendor/jquery-1.12.4.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/popper.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/bootstrap.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/owl.carousel.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/isotope.pkgd.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/ajax-form.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/waypoints.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/jquery.counterup.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/imagesloaded.pkgd.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/scrollIt.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/jquery.scrollUp.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/wow.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/nice-select.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/jquery.slicknav.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/jquery.magnific-popup.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/plugins.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/gijgo.min.js"></script>
-  <script src="<?= base_url('assets-lp/'); ?>js/slick.min.js"></script>
-
-
-
   <!--contact js-->
   <script src="<?= base_url('assets-lp/'); ?>js/contact.js"></script>
   <script src="<?= base_url('assets-lp/'); ?>js/jquery.ajaxchimp.min.js"></script>
