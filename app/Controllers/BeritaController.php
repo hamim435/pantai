@@ -4,16 +4,73 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\BeritaModel;
+use App\Models\KontakModel;
+use App\Models\PengaturanModel;
 use CodeIgniter\Config\Services;
 
 class BeritaController extends BaseController
 {
     protected $beritaModel;
+    protected $pengaturanModel;
+    protected $kontakModel;
 
     public function __construct()
     {
         $this->beritaModel = new BeritaModel();
+        $this->pengaturanModel = new PengaturanModel();
+        $this->kontakModel = new KontakModel();
     }
+
+    public function pageNews()
+    {
+        $berita = $this->beritaModel->findAll();
+        $pengaturan = $this->pengaturanModel->first();
+        // $link = $this->linkModel->getLink();
+        $kontak = $this->kontakModel->first();
+        $data = [
+            'title' => 'Berita',
+            'berita' => $berita,
+            'pengaturan' => $pengaturan,
+            // 'link' => $link,
+            'kontak' => $kontak
+        ];
+
+        return view('landingpage/pagenews', $data);
+    }
+
+    public function pageDetailNews($slug)
+    {
+        $berita = $this->beritaModel->getBySlug($slug);
+    
+        // Mendapatkan semua kategori berita unik
+        $categories = $this->beritaModel->getCategoriesBySlug($slug);
+    
+        $pengaturan = $this->pengaturanModel->first();
+        $kontak = $this->kontakModel->first();
+    
+        $days = array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu');
+        $months = array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+    
+        $updated_at = strtotime($berita['updated_at']);
+        $day_name = $days[date('w', $updated_at)];
+        $month_name = $months[date('n', $updated_at)];
+    
+        $formatted_date = $day_name . ', ' . date('d', $updated_at) . ' ' . $month_name . ' ' . date('Y H:i', $updated_at);
+    
+        $data = [
+            'title' => 'Berita ' . ucwords(strtolower($berita['judul_berita'])),
+            'berita' => $berita,
+            'categories' => $categories, // Mengirim semua kategori berita ke view
+            'pengaturan' => $pengaturan,
+            'formatted_date' => $formatted_date,
+            'kontak' => $kontak
+        ];
+    
+        return view('landingpage/detailpagenews', $data);
+    }
+    
+
+
 
     public function index()
     {
@@ -88,7 +145,7 @@ class BeritaController extends BaseController
 
             $image = Services::image()
                 ->withFile($imagePath . $newName)
-                ->fit(600, 400)
+                ->fit(750, 350)
                 ->save($imagePath . $newName);
 
             $data = [
@@ -200,7 +257,7 @@ class BeritaController extends BaseController
             // Perform image manipulation (e.g., resizing)
             $image = Services::image()
                 ->withFile($imagePath . $newName)
-                ->fit(600, 400) // Resize the image to your desired dimensions
+                ->fit(750, 350) // Resize the image to your desired dimensions
                 ->save($imagePath . $newName);
 
             $data['foto'] = $newName; // Save the new image name

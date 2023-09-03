@@ -14,4 +14,12 @@ class BeritaModel extends Model
     {
         return $this->where('slug', $slug)->first();
     }
+
+    public function getCategoriesBySlug($slug)
+    {
+        return $this->select('kategori_berita')
+                    ->where('slug', $slug)
+                    ->distinct()
+                    ->findAll();
+    }
 }

@@ -36,11 +36,12 @@ $routes->get('/', 'BerandaController::index');
 // $routes->get('/village-history', 'ProfileController::VillageHistory');
 // $routes->get('/vision-mission', 'ProfileController::VisionMission');
 // $routes->get('/regional-potential', 'ProfileController::RegionalPotential');
-$routes->get('/page-gallery', 'GaleriFotoController::page_gallery');
-// $routes->get('/page-galeri-video', 'GaleriVideoController::pageVideoGallery');
+// $routes->get('/page-gallery', 'GalleryPhotoCon;troller::page_gallery');
+$routes->get('/halaman-galeri-video', 'GaleriVideoController::pageVideoGallery');
 // $routes->get('/page-news', 'BeritaController::pageNews');
+$routes->get('/halaman-berita', 'BeritaController::pageNews');
 // $routes->get('/page-produk', 'ProdukController::pageProduk');
-// $routes->get('/page-news/(:any)', 'BeritaController::pageDetailNews/$1');
+$routes->get('/halaman-berita/(:any)', 'BeritaController::pageDetailNews/$1');
 // $routes->get('/page-kontak', 'KontakController::pageKontak');
 // $routes->get('/page-structure', 'ProfileController::StructureOrganization');
 
