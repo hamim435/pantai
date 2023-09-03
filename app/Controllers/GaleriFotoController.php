@@ -23,6 +23,15 @@ class GaleriFotoController extends BaseController
         ];
         return view('galleryphoto/index', $data);
     }
+    public function page_gallery()
+    {
+        $gallery = $this->GaleriFotoModel->getCarousel();
+        $data = [
+            'title' => 'Galeri Foto',
+            'gallery' => $gallery
+        ];
+        return view('landingpage/page-gallery', $data);
+    }
 
     public function detail($judul_foto)
     {
