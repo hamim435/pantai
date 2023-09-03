@@ -19,7 +19,7 @@
                                         <ul id="navigation">
                                             <li><a class="active" href="/">Beranda</a></li>
                                             <li><a href="#">Profil Wisata</a></li>
-                                            <li><a class="" href="#">Destinasi</a></l/li>
+                                            <li><a class="#" href="#">Destinasi</a></l/li>
                                             <!-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                         <li><a href="destination_details.html">Destinations details</a></li>
@@ -28,14 +28,14 @@
                                             </li> -->
                                             <li><a href="#">Berita<i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="#">Berita Terbaru</a></li>
+                                                    <li><a href="/halaman-berita">Berita Terbaru</a></li>
                                                     <!-- <li><a href="single-blog.html">single-blog</a></li> -->
                                                 </ul>
                                             </li>
                                             <li><a href="#">Galeri<i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="#">Galeri Foto</a></li>
-                                                    <li><a href="#">Galeri Video</a></li>
+                                                    <li><a href="/halaman-galeri-video">Galeri Video</a></li>
                                                     <!-- <li><a href="single-blog.html">single-blog</a></li> -->
                                                 </ul>
                                             </li>

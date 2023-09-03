@@ -2,6 +2,21 @@
 
 <?= $this->section('content'); ?>
 
+
+ <!-- bradcam_area  -->
+ <div class="bradcam_area bradcam_bg_4">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>blog</h3>
+                        <p>Pixel perfect design with awesome contents</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
 <!--================Blog Area =================-->
 <section class="blog_area section-padding">
     <div class="container">
