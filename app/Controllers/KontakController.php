@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\KontakModel;
+use App\Models\GaleriFotoModel;
 
 
 class KontakController extends BaseController
 {
 
     protected $KontakModel;
+    protected $GaleriFotoModel;
 
     public function __construct()
     {
         $this->KontakModel = new KontakModel();
+        $this->GaleriFotoModel = new GaleriFotoModel();
     }
 
     public function index()
@@ -25,6 +28,20 @@ class KontakController extends BaseController
         ];
         return view('kontak/index', $data);
 
+    }
+
+    public function pageKontak()
+    {
+        $galleries = $this->GaleriFotoModel->getFoto();
+        $kontak = $this->KontakModel->first();
+        // dd($kontak);
+        $data = [
+            'title' => 'Kontak',
+            'galleries' => $galleries,
+            'kontak' => $kontak,
+        ];
+
+        return view('landingpage/pagekontak', $data);
     }
 
     public function create()

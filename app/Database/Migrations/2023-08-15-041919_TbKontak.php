@@ -10,7 +10,7 @@ class TbKontak extends Migration
     {
         $this->forge->addField([
             'id'         => ['type' => 'INT', 'constraint' => 5, 'unsigned' => true, 'auto_increment' => true],
-            'deskripsi'  => ['type' => 'TEXT', 'null' => true],
+            'deskripsi_kontak'  => ['type' => 'TEXT', 'null' => true],
             'email'      => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => true],
             'no_telp'    => ['type' => 'VARCHAR', 'constraint' => 20, 'null' => true],
             'alamat'     => ['type' => 'TEXT',  'null' => true],

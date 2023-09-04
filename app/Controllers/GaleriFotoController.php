@@ -4,31 +4,40 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\GaleriFotoModel;
+use App\Models\KontakModel;
 
 class GaleriFotoController extends BaseController
 {
     protected $GaleriFotoModel;
+    protected $KontakModel;
 
     public function __construct()
     {
         $this->GaleriFotoModel = new GaleriFotoModel();
+        $this->KontakModel = new KontakModel();
     }
 
     public function index()
     {
         $gallery = $this->GaleriFotoModel->findAll();
+        $galleries = $this->GaleriFotoModel->getFoto();
         $data = [
             'title' => 'Galeri Foto',
-            'gallery' => $gallery
+            'gallery' => $gallery,
+            'galleries' => $galleries
         ];
         return view('galleryphoto/index', $data);
     }
     public function page_gallery()
     {
         $gallery = $this->GaleriFotoModel->getCarousel();
+        $galleries = $this->GaleriFotoModel->getFoto();
+        $kontak = $this->KontakModel->first();
         $data = [
             'title' => 'Galeri Foto',
-            'gallery' => $gallery
+            'gallery' => $gallery,
+            'galleries' => $galleries,
+            'kontak' => $kontak
         ];
         return view('landingpage/page-gallery', $data);
     }

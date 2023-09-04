@@ -66,7 +66,7 @@ class Filters extends BaseConfig
         [
             'berita*',
             'settings*',
-            'video/*',
+            'video*',
             'photo*',
             'link*',
             'kontak*',

@@ -9,9 +9,14 @@
                                 <img src="assets-lp/img/footer_logo.png" alt="">
                             </a>
                         </div>
-                        <p>5th flora, 700/D kings road, green <br> lane New York-1782 <br>
-                            <a href="#">+10 367 826 2567</a> <br>
-                            <a href="#">contact@carpenter.com</a>
+                        <p>
+                           <?= $kontak['alamat'] ?>
+                            <br>
+                            <a href="#">   <?= $kontak['no_telp'] ?></a>
+                            <br>
+                            <a href="#">
+                                <?= $kontak['email'] ?>
+                            </a>
                         </p>
                         <div class="socail_links">
                             <ul>
@@ -50,10 +55,9 @@
                             Perusahaan
                         </h3>
                         <ul class="links">
-                            <li><a href="#">Harga</a></li>
-                            <li><a href="#">Tentang Kami</a></li>
-                            <li><a href="#">Galeri</a></li>
-                            <li><a href="#">Kontak</a></li>
+                            <li><a href="/tentang">Tentang Kami</a></li>
+                            <li><a href="/page-gallery">Galeri</a></li>
+                            <li><a href="/halaman-kontak">Kontak</a></li>
                         </ul>
                     </div>
                 </div>

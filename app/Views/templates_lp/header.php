@@ -8,8 +8,7 @@
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
                                     <a href="index.html">
-                                        <img src="
-                                        " alt="">
+                                        <img src="assets-lp/img/logo.png" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -32,16 +31,17 @@
                                                     <!-- <li><a href="single-blog.html">single-blog</a></li> -->
                                                 </ul>
                                             </li>
-                                            <li><a href="#">Kontak</a></li>
+
+                                            <li><a href="/halaman-kontak">Kontak</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 d-none d-lg-block">
                                 <div class="social_wrap d-flex align-items-center justify-content-end">
-                                    <div class="number">
+                                    <!-- <div class="number">
                                         <p> <i class="fa fa-phone"></i> 10(256)-928 256</p>
-                                    </div>
+                                    </div> -->
                                     <div class="social_links d-none d-xl-block">
                                         <ul>
                                             <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>

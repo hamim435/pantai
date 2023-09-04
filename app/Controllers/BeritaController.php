@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\BeritaModel;
 use App\Models\KontakModel;
 use App\Models\PengaturanModel;
+use App\Models\GaleriFotoModel;
 use CodeIgniter\Config\Services;
 
 class BeritaController extends BaseController
@@ -13,24 +14,28 @@ class BeritaController extends BaseController
     protected $beritaModel;
     protected $pengaturanModel;
     protected $kontakModel;
+    protected $GaleriFotoModel;
 
     public function __construct()
     {
         $this->beritaModel = new BeritaModel();
         $this->pengaturanModel = new PengaturanModel();
         $this->kontakModel = new KontakModel();
+        $this->GaleriFotoModel = new GaleriFotoModel();
     }
 
     public function pageNews()
     {
         $berita = $this->beritaModel->findAll();
         $pengaturan = $this->pengaturanModel->first();
+        $galleries = $this->GaleriFotoModel->getFoto();
         // $link = $this->linkModel->getLink();
         $kontak = $this->kontakModel->first();
         $data = [
             'title' => 'Berita',
             'berita' => $berita,
             'pengaturan' => $pengaturan,
+            'galleries' => $galleries,
             // 'link' => $link,
             'kontak' => $kontak
         ];
@@ -47,6 +52,7 @@ class BeritaController extends BaseController
     
         $pengaturan = $this->pengaturanModel->first();
         $kontak = $this->kontakModel->first();
+        $galleries = $this->GaleriFotoModel->getFoto();
     
         $days = array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu');
         $months = array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
@@ -63,6 +69,7 @@ class BeritaController extends BaseController
             'categories' => $categories, // Mengirim semua kategori berita ke view
             'pengaturan' => $pengaturan,
             'formatted_date' => $formatted_date,
+            'galleries' => $galleries,
             'kontak' => $kontak
         ];
     

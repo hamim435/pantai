@@ -42,7 +42,7 @@ $routes->get('/halaman-galeri-video', 'GaleriVideoController::pageVideoGallery')
 $routes->get('/halaman-berita', 'BeritaController::pageNews');
 // $routes->get('/page-produk', 'ProdukController::pageProduk');
 $routes->get('/halaman-berita/(:any)', 'BeritaController::pageDetailNews/$1');
-// $routes->get('/page-kontak', 'KontakController::pageKontak');
+$routes->get('/halaman-kontak', 'KontakController::pageKontak');
 // $routes->get('/page-structure', 'ProfileController::StructureOrganization');
 
 

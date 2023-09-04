@@ -7,6 +7,7 @@ use App\Models\KontakModel;
 use App\Models\PengaturanModel;
 use App\Models\VideoModel;
 use App\Models\LinkModel;
+use App\Models\GaleriFotoModel;
 
 
 class GaleriVideoController extends BaseController
@@ -15,28 +16,33 @@ class GaleriVideoController extends BaseController
     protected $pengaturanModel;
     protected $linkModel;
     protected $kontakModel;
+    protected $GaleriFotoModel;
 
 
     public function __construct()
     {
         $this->videoModel = new VideoModel;
+        $this->GaleriFotoModel = new GaleriFotoModel();
+        
         // $this->pengaturanModel = new PengaturanModel();
         // $this->linkModel = new LinkModel();
-        // $this->kontakModel = new KontakModel();
+        $this->kontakModel = new KontakModel();
     }
 
     public function pageVideoGallery()
     {
         $video = $this->videoModel->findAll();
+        $galleries = $this->GaleriFotoModel->getFoto();
         // $pengaturan = $this->pengaturanModel->first();
         // $link = $this->linkModel->getLink();
-        // $kontak = $this->kontakModel->first();
+        $kontak = $this->kontakModel->first();
         $data = [
             'title' => 'Galeri Video',
             'video' => $video,
+            'galleries' => $galleries,
             // 'pengaturan' => $pengaturan,
             // 'link' => $link,
-            // 'kontak' => $kontak
+            'kontak' => $kontak
         ];
 
         return view('landingpage/pagegalerivideo', $data);

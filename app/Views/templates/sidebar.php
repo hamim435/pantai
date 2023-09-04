@@ -76,22 +76,22 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="/produk" class="nav-link">
                         <i class="fas fa-cart-plus mr-2"></i>
                         <p>
                             Kelola Produk
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a href="/link" class="nav-link">
                         <i class="fas fa-link mr-2"></i>
                         <p>
                             Kelola Quick Link
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="/settings" class="nav-link">
                         <i class="fas fa-cog mr-2"></i>
