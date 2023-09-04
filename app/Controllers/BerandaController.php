@@ -50,4 +50,16 @@ class BerandaController extends BaseController
         ];
         return view('landingpage/pageAbout', $data);
     }
+
+    public function footer()
+    {
+        $pengaturan = $this->PengaturanModel->first();
+        $galleries = $this->GaleriFotoModel->getFoto();
+        $data = [
+            'title' => 'Tentang Kami',
+            'pengaturan' => $pengaturan,
+            'galleries' => $galleries,
+        ];
+        return view('templates_lp/footer', $data);
+    }
 }

@@ -19,13 +19,6 @@
                                         <ul id="navigation">
                                             <li><a class="active" href="/">Beranda</a></li>
                                             <li><a href="/tentang">Profil Wisata</a></li>
-                                            <li><a class="#" href="#">Destinasi</a></l/li>
-                                            <!-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                        <li><a href="destination_details.html">Destinations details</a></li>
-                                                        <li><a href="elements.html">elements</a></li>
-                                                </ul>
-                                            </li> -->
                                             <li><a href="#">Berita<i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="/halaman-berita">Berita Terbaru</a></li>
@@ -60,9 +53,9 @@
                                 </div>
                             </div>
                             <div class="seach_icon">
-                                <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
+                                <!-- <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
                                     <i class="fa fa-search"></i>
-                                </a>
+                                </a> -->
                             </div>
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>
