@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <span class="brand-text font-weight-light">Dashboard Admin</span>
+        <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
     <!-- Sidebar -->
@@ -37,7 +37,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class="fas fa-images mr-2"></i>
                         <p>
                             Kelola Foto
@@ -59,7 +59,7 @@
                         </li>
                     </ul>
                 </li>
-                <!-- Gallery Photo Punya Diva -->
+                 <!-- Gallery Photo Punya Diva -->
                 <li class="nav-item">
                     <a href="/video" class="nav-link">
                         <i class="fas fa-video mr-2"></i>
@@ -76,15 +76,15 @@
                         </p>
                     </a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="/produk" class="nav-link">
-                        <i class="fas fa-cart-plus mr-2"></i>
+                        <i class="fas fa-produk mr-2"></i>
                         <p>
                             Kelola Produk
                         </p>
                     </a>
-                </li> -->
-                <!-- <li class="nav-item">
+                </li>
+                <!--<li class="nav-item">
                     <a href="/link" class="nav-link">
                         <i class="fas fa-link mr-2"></i>
                         <p>
@@ -96,7 +96,7 @@
                     <a href="/settings" class="nav-link">
                         <i class="fas fa-cog mr-2"></i>
                         <p>
-                            Pengaturan
+                            Pengaturan dkajiais
                         </p>
                     </a>
                 </li>

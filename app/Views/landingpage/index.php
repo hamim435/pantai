@@ -40,8 +40,153 @@
     </div>
 </div>
 <!-- where_togo_area_end  -->
+<div class="container-xxl py-3 mt-2">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-12 wow fadeIn" data-wow-delay="0.5s">
+                <div class="text-center">
+                <div class="section-title-vh">
+                    <p class="fs-5 fw-medium fst-italic text-dark" style="margin-bottom: -1px;">DESTINASI POPULER </p>
+                    <h1 class="display-6">Berikut adalah destinasi wisata yang ada di Kabupaten Tanah Laut </h1>
+                </div>
+            </div>
+            </div>
+        </div>
 
-<!-- popular_destination_area_start  -->
+        <!-- Row for cards -->
+        <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Pantai</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Warna latar belakang halaman */
+        }
+
+        .card {
+            background-color: rgb(82, 207, 153); /* Warna latar belakang kartu */
+            color: white; /* Warna teks di dalam kartu */
+            border: none; /* Hapus border default */
+            height: 18rem; /* Tinggi kartu */
+            text-align: center;
+            border-radius: 15px; /* Membuat sudut membulat */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+            transition: transform 0.3s ease; /* Animasi saat hover */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Efek zoom saat hover */
+            background-color: rgb(56, 104, 175); /* Warna saat hover */
+        }
+
+        .card h5 {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .card p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: rgb(230, 238, 233); /* Warna tombol utama */
+            border-color: rgb(253, 253, 253); /* Warna border tombol utama */
+            color: rgb(56, 104, 175); /* Warna teks tombol */
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(210, 225, 220); /* Warna tombol saat hover */
+        }
+
+        .submenu {
+            display: none; /* Awalnya sembunyikan submenu */
+            position: absolute;
+            background-color: rgb(56, 104, 175);
+            padding: 10px 0;
+            border-radius: 8px;
+            z-index: 10;
+        }
+
+        .btn-secondary:hover .submenu {
+            display: block; /* Tampilkan submenu saat hover */
+        }
+
+        .submenu li {
+            list-style: none;
+            margin: 0;
+        }
+
+        .submenu li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+        }
+
+        .submenu li a:hover {
+            background-color: rgb(82, 207, 153);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card">
+                    <h5>Wisata</h5>
+                    <p>Jelajahi keindahan pantai dan tempat wisata lainnya.</p>
+                    <a href="/tentang" class="btn btn-primary mt-2">Selengkapnya</a>
+                    <img src="c:\Users\acer\Pictures\logo 1.ai" class="card-img-top">
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card">
+                    <h5>Galeri</h5>
+                    <p>Koleksi foto dan video dari destinasi wisata.</p>
+                    <a href="/page-gallery" class="btn btn-primary mt-2">Lihat Galeri</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card">
+                    <h5>Berita</h5>
+                    <p>Berita terbaru seputar wisata dan kegiatan masyarakat.</p>
+                    <a href="/halaman-berita" class="btn btn-primary mt-2">Berita Terbaru</a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card">
+                    <h5>Kuliner Wisata</h5>
+                    <p>Nikmati kuliner khas di sekitar tempat wisata.</p>
+                    <a href="/page-produk" class="btn btn-primary mt-2">Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+</body>  
+
+</html>
+
+
+<!-- popular_destination_area_start  
 <div class="popular_destination_area">
     <div class="container">
         <div class="row justify-content-center">
@@ -69,16 +214,16 @@
             <?php endforeach; ?>
         </div>
     </div>
-</div>
+</div> -->
 <!-- popular_destination_area_end  -->
 
-<!-- newletter_area_start  -->
+<!-- newletter_area_start  
 <div class="newletter_area overlay">
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-10">
                 <div class="row align-items-center">
-                    <div class="col-lg-5">
+                    <div class="col-lg-5"> -->
                         <!-- <div class="newsletter_text">
                             <h4>Subscribe Our Newsletter</h4>
                             <p>Subscribe newsletter to get offers and about
@@ -143,7 +288,7 @@
 </div>
 
 
-<div class="video_area video_bg overlay">
+<!-- <div class="video_area video_bg overlay">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -255,51 +400,5 @@
     </div>
 </div> -->
 <!-- /testimonial_area  -->
-
-
-<div class="recent_trip_area">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="section_title text-center mb_70">
-                    <h3>Berita Terbaru</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-        <?php foreach ($berita as $index => $item): ?>
-            <div class="col-lg-4 col-md-6">
-                <div class="single_trip">
-                    <div class="thumb">
-                        <img src="<?= base_url('uploads/' . $item['foto']); ?> " alt="">
-                    </div>
-                    <div class="info">
-                        <div class="date">
-                            <span>
-                                <?= $item['updated_at']; ?>
-                            </span>
-                        </div>
-                        <a href="<?= base_url('halaman-berita/' . $item['slug']); ?>">
-                            <h3>
-                                <?= $item['judul_berita']; ?>
-                            </h3>
-                        </a>
-                        <!-- baca seterus nya -->
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="date">
-                                    <span>
-                                        <?= $item['kategori_berita']; ?>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>    
-        </div>
-    </div>
-</div>
 
 <?= $this->endSection(); ?>

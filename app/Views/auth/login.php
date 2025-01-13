@@ -1,80 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/fontawesome-free/css/all.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?= base_url('assets/'); ?>dist/css/adminlte.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Wisata Pantai</title>
+    <!-- Link CSS Bootstrap dan FontAwesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .login-box {
+            width: 360px;
+            margin: 7% auto;
+        }
+        .login-logo a {
+            font-size: 2rem;
+            text-align: center;
+        }
+        .login-card-body {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="#"><b>Desa</b>Tes</a>
-    </div>
-    <div class="card">
-        <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
-            <?php if (session()->has('error')): ?>
-        <p style="color: red;"><?php echo session('error'); ?></p>
-    <?php endif; ?>
-            <form action="/auth/processLogin" method="post">
-            <!-- crsf-->
-            <?= csrf_field(); ?>
-                <div class="input-group mb-3">
-                    <input type="text" name="username" id="username" class="form-control" placeholder="Username">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="Password">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" id="remember" name="remember">
-                            <label for="remember">
-                                Remember Me
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                    </div>
-                </div>
-            </form>
+<body class="hold-transition login-page" style="background-image: url('d:\magang v1\foto\pantai.jpg'); background-size: cover; background-repeat: no-repeat;">">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#"><b>Login</b> Wisata</a>
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
 
+                <!-- Tampilkan pesan error jika ada -->
+                <?php if (session()->has('error')): ?>
+                    <p style="color: red;"><?php echo session('error'); ?></p>
+                <?php endif; ?>
 
-            <!-- Uncomment the following lines if needed -->
-            <!--
-            <p class="mb-1">
-                <a href="forgot-password.html">I forgot my password</a>
-            </p>
-            <p class="mb-0">
-                <a href="register.html" class="text-center">Register a new membership</a>
-            </p>
-            -->
+                <!-- Form login -->
+                <form action="/auth/processLogin" method="post">
+                    <?= csrf_field(); ?>
+                    <div class="input-group mb-3">
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="<?= base_url('assets/'); ?>plugins/jquery/jquery.min.js"></script>
-<script src="<?= base_url('assets/'); ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="<?= base_url('assets/'); ?>dist/js/adminlte.min.js"></script>
+    <?php
+    // Proses login
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Ambil inputan
+        $user_id = $_POST('id');
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // Validasi inputan kosong
+        if (empty($username) || empty($password)) {
+            session()->setFlashdata('error', 'Username dan password tidak boleh kosong.');
+            header('Location: /login'); // Redirect ke halaman login
+            exit();
+        }
+
+        // Koneksi ke database
+        $conn = new mysqli('localhost', 'root', '', 'wisatadigital');
+
+        // Cek koneksi
+        if ($conn->connect_error) {
+            die('Koneksi gagal: ' . $conn->connect_error);
+        }
+
+        // Query untuk validasi username
+        $stmt = $conn->prepare("SELECT * FROM tb_user WHERE username = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+
+            // Verifikasi password
+            if (password_verify($password, $user['password'])) {
+                // Simpan informasi login ke session
+                session()->set('user', $user);
+
+                // Redirect ke halaman dashboard
+                header('Location: /dashboard');
+                exit();
+            } else {
+                session()->setFlashdata('error', 'Password salah.');
+            }
+        } else {
+            session()->setFlashdata('error', 'Username tidak ditemukan.');
+        }
+
+        // Tutup koneksi
+        $stmt->close();
+        $conn->close();
+
+        // Redirect ke halaman login
+        header('Location: /login');
+        exit();
+    }
+    ?>
+</>
+
+    </div>
+
+    <!-- Link JS Bootstrap dan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

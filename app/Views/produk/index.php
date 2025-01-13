@@ -31,7 +31,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="/produk/create" class="btn btn-primary">Tambah Data +</a>
+                            <a href="produk/tambah" class="btn btn-primary">Tambah Data +</a>
                             <?php if (session('success')) : ?>
                                 <div class="alert alert-success alert-dismissible mt-3">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -51,6 +51,7 @@
                                         <th>No</th>
                                         <th>Image</th>
                                         <th>Nama Produk</th>
+                                        <th>Jenis Produk</th>
                                         <th>Deskripsi</th>
                                         <th>Pemilik Produk</th>
                                         <th>Aksi</th>
@@ -61,8 +62,9 @@
                                     <?php foreach ($produk as $p) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
-                                            <td><img src="<?= base_url('/uploads/') . $p['foto']; ?>" alt="Foto" width="50" height="50"></td>
+                                            <td><img src="<?= base_url('/uploads') . $p['foto']; ?>" alt="Foto" width="50" height="50"></td>
                                             <td><?= $p['nama_produk']; ?></td>
+                                            <td><?= $p['jenis_produk']; ?></td>
                                             <td><?= $p['deskripsi']; ?></td>
                                             <td><?= $p['pemilik_produk']; ?></td>
                                             <td><?= $p['created_at']; ?></td>
@@ -73,16 +75,6 @@
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Image</th>
-                                        <th>Nama Produk</th>
-                                        <th>Deskripsi</th>
-                                        <th>Pemilik Produk</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

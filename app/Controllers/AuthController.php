@@ -13,46 +13,55 @@ class AuthController extends BaseController
     {
         $this->userModel = new UsersModel();
     }
-
-
     public function login()
     {
-        if (session()->get('user_id')) {
+        $data = [
+            'title' => 'Login',
+        ];
+
+        if (session()->get('user')) {
             return redirect()->to('/dashboard');
         }
-        return view('auth/login'); // Menampilkan halaman login
+        return view('auth/login', $data); // Menampilkan halaman login
     }
-   
+
     public function processLogin()
     {
-        $validation =  \Config\Services::validation();
-     // Set validation rules
+        $validation = \Config\Services::validation();
+        // Set validation rules
         $validation->setRules([
             'username' => 'required',
-            'password' => 'required',
+            'password' => 'required|min_length[6]',
         ]);
 
         // validation
         if (!$validation->withRequest($this->request)->run()) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
+
         $username = $this->request->getPost('username');
         $password = $this->request->getVar('password');
 
         $user = $this->userModel->where('username', $username)->first();
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user) { // Mengecek apakah pengguna ditemukan
+            // Validasi password menggunakan password_verify
+            if (password_verify($password, $user['password'])) {
+                $userData = [
+                    'user' => [
+                        'id' => $user['id'],
+                        'nama' => $user['nama'],
+                        'username' => $user['username'],
+                        'role' => $user['role'],
+                    ],
+                ];
 
-            $userData = [
-                'user_id' => $user['id'],
-                'nama' => $user['nama'],
-                'username' => $user['username'],
-                'password' => $user['password'],
-            ];
-
-            session()->set($userData);
-            return redirect()->to('/dashboard');
+                session()->set($userData);
+                return redirect()->to('/dashboard');
+            } else {
+                return redirect()->back()->withInput()->with('error', 'Password salah.');
+            }
         } else {
-            return redirect()->back()->withInput()->with('error', 'username atau password salah.');
+            return redirect()->back()->withInput()->with('error', 'Username tidak ditemukan.');
         }
     }
 

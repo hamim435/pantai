@@ -43,7 +43,7 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>Noj</th>
                                         <th>Deskripsi Kontak</th>
                                         <th>Email</th>
                                         <th>Nomer Telepon</th>

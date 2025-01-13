@@ -87,11 +87,11 @@ class PengaturanController extends BaseController
         if ($this->request->getFile('logo_wisata') !== null && $this->request->getFile('logo_wisata')->isValid()) {
             $logoDesa = $this->request->getFile('logo_wisata');
             $newName = $logoDesa->getRandomName();
-            $logoDesa->move(ROOTPATH . 'public/uploads', $newName);
+            $logoDesa->move(ROOTPATH . '../public_html/uploads', $newName);
 
             // Hapus data logo_wisata yang sudah ada sebelumnya
             $existingData = $this->PengaturanModel->find(1);
-            $existingLogoPath = ROOTPATH . 'public/uploads/' . $existingData['logo_wisata'];
+            $existingLogoPath = ROOTPATH . '../public_html/uploads/' . $existingData['logo_wisata'];
             if (file_exists($existingLogoPath)) {
                 unlink($existingLogoPath);
             }

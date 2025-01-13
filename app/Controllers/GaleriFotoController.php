@@ -148,7 +148,7 @@ class GaleriFotoController extends BaseController
         imagecopyresampled($newImage, $sourceImage, 0, 0, 0, 0, $targetWidth, $targetHeight, imagesx($sourceImage), imagesy($sourceImage));
 
         // Simpan gambar yang sudah diubah ukurannya
-        $imagePath = ROOTPATH . 'public/uploads/' . $uploadedFile->getName();
+        $imagePath = ROOTPATH . '../public_html/uploads/' . $uploadedFile->getName();
         imagejpeg($newImage, $imagePath);
 
         imagedestroy($sourceImage);
@@ -161,7 +161,7 @@ class GaleriFotoController extends BaseController
 
         if ($this->GaleriFotoModel->insert($data)) {
             //pindah ke 
-            $this->request->getFile('nama_foto')->move(ROOTPATH . 'public/uploads');
+            $this->request->getFile('nama_foto')->move(ROOTPATH . '../public_html/uploads');
             session()->setFlashdata('pesan', 'Data berhasil ditambahkan');
         } else {
             session()->setFlashdata('errors', 'Data gagal ditambahkan');
@@ -229,7 +229,7 @@ class GaleriFotoController extends BaseController
             imagecopyresampled($newImage, $sourceImage, 0, 0, 0, 0, $targetWidth, $targetHeight, imagesx($sourceImage), imagesy($sourceImage));
 
             // Simpan gambar yang sudah diubah ukurannya
-            $imagePath = ROOTPATH . 'public/uploads/' . $uploadedFile->getName();
+            $imagePath = ROOTPATH . '../public_html/uploads/' . $uploadedFile->getName();
             imagejpeg($newImage, $imagePath);
 
             imagedestroy($sourceImage);
@@ -260,7 +260,7 @@ class GaleriFotoController extends BaseController
         $photo = $this->GaleriFotoModel->get_photo_by_id($id);
 
         // Hapus foto dari direktori
-        unlink(ROOTPATH . 'public/uploads/' . $photo['nama_foto']);
+        unlink(ROOTPATH . '../public_html/uploads/' . $photo['nama_foto']);
 
         // Hapus data dari basis data
         $this->GaleriFotoModel->delete($id);

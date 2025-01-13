@@ -67,6 +67,21 @@
                                             </div>
                                         <?php endif; ?>
                                     </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="jenis_produk">Jenis Produk</label>
+                                        <select class="form-control <?= (session('errors.jenis_produk')) ? 'is-invalid' : ''; ?>" id="jenis_produk" name="jenis_produk">
+                                            <option value="makanan">Makanan</option>
+                                            <option value="minuman">Minuman</option>
+                                            <option value="lainnya">Lainnya</option>
+                                        </select>
+                                        <?php if (session('errors.jenis_produk')) : ?>
+                                            <div class="invalid-feedback">
+                                                <?= session('errors.jenis_produk'); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        </div>
+
                                     <div class="form-group">
                                         <label for="deskripsi">Deskripsi</label>
                                         <textarea class="form-control <?= (session('errors.deskripsi')) ? 'is-invalid' : ''; ?>" id="deskripsi" name="deskripsi" placeholder="Deskripsi Produk"><?= $produk['deskripsi']; ?></textarea>
@@ -88,7 +103,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Update</button>
-                                    <a href="/news" class="btn btn-secondary">Back</a>
+                                    <a href="/produk" class="btn btn-secondary">Back</a>
                                 </div>
                             </form>
                         </div>

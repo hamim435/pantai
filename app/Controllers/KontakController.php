@@ -41,7 +41,7 @@ class KontakController extends BaseController
             'kontak' => $kontak,
         ];
 
-        return view('landingpage/pagekontak', $data);
+        return view('landingpage/pageKontak', $data);
     }
 
     public function create()

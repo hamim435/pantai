@@ -14,121 +14,133 @@ class BeritaController extends BaseController
     protected $beritaModel;
     protected $pengaturanModel;
     protected $kontakModel;
-    protected $GaleriFotoModel;
+    protected $galeriFotoModel;
 
     public function __construct()
     {
         $this->beritaModel = new BeritaModel();
         $this->pengaturanModel = new PengaturanModel();
         $this->kontakModel = new KontakModel();
-        $this->GaleriFotoModel = new GaleriFotoModel();
+        $this->galeriFotoModel = new GaleriFotoModel();
     }
 
+    /**
+     * Halaman daftar berita
+     */
+    public function index()
+    {
+        // Ambil semua berita
+        $berita = $this->beritaModel->findAll();
+
+        // Ambil berita populer
+        $beritaPopuler = $this->beritaModel->orderBy('views', 'DESC')->limit(5)->find();
+
+        // Ambil semua kategori berita
+        $kategori = $this->beritaModel->findAll();
+
+        $data = [
+            'title' => 'Berita',
+            'berita' => $berita,
+            'beritaPopuler' => $beritaPopuler,
+            'kategori' => $kategori,
+        ];
+
+        return view('halaman-berita', $data);
+    }
+
+    /**
+     * Halaman berita (untuk frontend landing page)
+     */
     public function pageNews()
     {
         $berita = $this->beritaModel->findAll();
         $pengaturan = $this->pengaturanModel->first();
-        $galleries = $this->GaleriFotoModel->getFoto();
-        // $link = $this->linkModel->getLink();
         $kontak = $this->kontakModel->first();
+        $galleries = $this->galeriFotoModel->getFoto();
+
         $data = [
             'title' => 'Berita',
             'berita' => $berita,
             'pengaturan' => $pengaturan,
+            'kontak' => $kontak,
             'galleries' => $galleries,
-            // 'link' => $link,
-            'kontak' => $kontak
         ];
 
         return view('landingpage/pagenews', $data);
     }
 
+    /**
+     * Detail berita
+     */
     public function pageDetailNews($slug)
     {
         $berita = $this->beritaModel->getBySlug($slug);
-    
-        // Mendapatkan semua kategori berita unik
+
+        // Dapatkan semua kategori berita terkait
         $categories = $this->beritaModel->getCategoriesBySlug($slug);
-    
+
         $pengaturan = $this->pengaturanModel->first();
         $kontak = $this->kontakModel->first();
-        $galleries = $this->GaleriFotoModel->getFoto();
-    
-        $days = array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu');
-        $months = array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
-    
+        $galleries = $this->galeriFotoModel->getFoto();
+
+        // Format tanggal
+        $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $months = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
         $updated_at = strtotime($berita['updated_at']);
-        $day_name = $days[date('w', $updated_at)];
-        $month_name = $months[date('n', $updated_at)];
-    
-        $formatted_date = $day_name . ', ' . date('d', $updated_at) . ' ' . $month_name . ' ' . date('Y H:i', $updated_at);
-    
+        $formatted_date = $days[date('w', $updated_at)] . ', ' . date('d', $updated_at) . ' ' . $months[date('n', $updated_at)] . ' ' . date('Y H:i', $updated_at);
+
         $data = [
             'title' => 'Berita ' . ucwords(strtolower($berita['judul_berita'])),
             'berita' => $berita,
-            'categories' => $categories, // Mengirim semua kategori berita ke view
+            'categories' => $categories,
             'pengaturan' => $pengaturan,
             'formatted_date' => $formatted_date,
             'galleries' => $galleries,
-            'kontak' => $kontak
+            'kontak' => $kontak,
         ];
-    
+
         return view('landingpage/detailpagenews', $data);
     }
-    
 
-
-
-    public function index()
-    {
-        $berita = $this->beritaModel->findAll();
-        
-        $data = [
-            'title' => 'Berita',
-            'berita' => $berita,
-            
-        ];
-
-        return view('berita/index', $data);
-    }
+    /**
+     * Tambah berita
+     */
     public function create()
     {
         $data = [
             'title' => 'Tambah Data Berita',
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
         ];
 
         return view('berita/tambah', $data);
     }
+
+    /**
+     * Simpan berita
+     */
     public function save()
     {
         $validationRules = [
             'judul_berita' => [
                 'rules' => 'required',
-                'errors' => [
-                    'required' => 'Judul berita harus diisi.'
-                ]
+                'errors' => ['required' => 'Judul berita harus diisi.'],
             ],
             'isi' => [
                 'rules' => 'required',
-                'errors' => [
-                    'required' => 'Isi berita harus diisi.'
-                ]
+                'errors' => ['required' => 'Isi berita harus diisi.'],
             ],
             'kategori_berita' => [
                 'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kategori berita harus diisi.'
-                ]
+                'errors' => ['required' => 'Kategori berita harus diisi.'],
             ],
             'foto' => [
                 'rules' => 'uploaded[foto]|max_size[foto,2048]|is_image[foto]',
                 'errors' => [
                     'uploaded' => 'Pilih file gambar untuk foto.',
                     'max_size' => 'Ukuran file gambar maksimal 2MB.',
-                    'is_image' => 'File harus berupa gambar (jpg, jpeg, png, gif).'
-                ]
-            ]
+                    'is_image' => 'File harus berupa gambar.',
+                ],
+            ],
         ];
 
         if (!$this->validate($validationRules)) {
@@ -139,106 +151,74 @@ class BeritaController extends BaseController
         $slug = url_title($judulBerita, '-', true);
 
         $image = $this->request->getFile('foto');
+        $newName = $image->getRandomName();
+        $image->move(ROOTPATH . 'public/uploads/', $newName);
 
-        // Check if an image was uploaded
-        if ($image->isValid()) {
-            $imagePath = ROOTPATH . 'public/uploads/';
+        $this->beritaModel->save([
+            'slug' => $slug,
+            'judul_berita' => $judulBerita,
+            'isi' => $this->request->getVar('isi'),
+            'kategori_berita' => $this->request->getVar('kategori_berita'),
+            'foto' => $newName,
+        ]);
 
-            // Generate a unique file name
-            $newName = $image->getRandomName();
-
-            // Move the uploaded file
-            $image->move($imagePath, $newName);
-
-            $image = Services::image()
-                ->withFile($imagePath . $newName)
-                ->fit(750, 350)
-                ->save($imagePath . $newName);
-
-            $data = [
-                'slug' => $slug,
-                'judul_berita' => $judulBerita,
-                'isi' => $this->request->getVar('isi'),
-                'kategori_berita' => $this->request->getVar('kategori_berita'),
-                'foto' => $newName, // Save the new image name
-            ];
-        } else {
-            // Handle the case when no new image is uploaded
-            $data = [
-                'slug' => $slug,
-                'judul_berita' => $judulBerita,
-                'isi' => $this->request->getVar('isi'),
-                'kategori_berita' => $this->request->getVar('kategori_berita'),
-            ];
-        }
-
-        if ($this->beritaModel->insert($data)) {
-            session()->setFlashdata('success', 'Data Berita Berhasil ditambahkan!');
-        } else {
-            session()->setFlashdata('error', 'Gagal menambahkan data berita.');
-        }
-
+        session()->setFlashdata('success', 'Berita berhasil ditambahkan.');
         return redirect()->to('/berita');
     }
 
+    /**
+     * Edit berita
+     */
     public function edit($id)
     {
         $berita = $this->beritaModel->find($id);
+
         if (!$berita) {
-            return redirect()->to('/berita')->with('error', 'Berita not found.');
+            return redirect()->to('/berita')->with('error', 'Berita tidak ditemukan.');
         }
 
         $data = [
             'title' => 'Edit Berita',
             'validation' => \Config\Services::validation(),
-            'berita' => $berita
+            'berita' => $berita,
         ];
 
         return view('berita/edit', $data);
     }
 
+    /**
+     * Update berita
+     */
     public function update($id)
     {
         $validationRules = [
             'judul_berita' => [
                 'rules' => 'required',
-                'errors' => [
-                    'required' => 'Judul berita harus diisi.'
-                ]
+                'errors' => ['required' => 'Judul berita harus diisi.'],
             ],
             'isi' => [
                 'rules' => 'required',
-                'errors' => [
-                    'required' => 'Isi berita harus diisi.'
-                ]
+                'errors' => ['required' => 'Isi berita harus diisi.'],
             ],
             'kategori_berita' => [
                 'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kategori berita harus diisi.'
-                ]
-            ]
+                'errors' => ['required' => 'Kategori berita harus diisi.'],
+            ],
         ];
 
-        // Check if a new photo is uploaded
         if ($this->request->getFile('foto')->isValid()) {
             $validationRules['foto'] = [
                 'rules' => 'uploaded[foto]|max_size[foto,2048]|is_image[foto]',
                 'errors' => [
-                    'uploaded' => 'Pilih file gambar untuk foto.',
+                    'uploaded' => 'Pilih file gambar.',
                     'max_size' => 'Ukuran file gambar maksimal 2MB.',
-                    'is_image' => 'File harus berupa gambar (jpg, jpeg, png, gif).'
-                ]
+                    'is_image' => 'File harus berupa gambar.',
+                ],
             ];
         }
 
         if (!$this->validate($validationRules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-        }
-
-        $berita = $this->beritaModel->find($id);
-        if (!$berita) {
-            return redirect()->to('/berita')->with('error', 'Berita not found.');
         }
 
         $judulBerita = $this->request->getVar('judul_berita');
@@ -251,47 +231,31 @@ class BeritaController extends BaseController
             'kategori_berita' => $this->request->getVar('kategori_berita'),
         ];
 
-        // Check if a new photo is uploaded
         if ($this->request->getFile('foto')->isValid()) {
-            $imagePath = ROOTPATH . 'public/uploads/';
-
-            // Generate a unique file name
-            $newName = $this->request->getFile('foto')->getRandomName();
-
-            // Move the uploaded file
-            $this->request->getFile('foto')->move($imagePath, $newName);
-
-            // Perform image manipulation (e.g., resizing)
-            $image = Services::image()
-                ->withFile($imagePath . $newName)
-                ->fit(750, 350) // Resize the image to your desired dimensions
-                ->save($imagePath . $newName);
-
-            $data['foto'] = $newName; // Save the new image name
+            $image = $this->request->getFile('foto');
+            $newName = $image->getRandomName();
+            $image->move(ROOTPATH . 'public/uploads/', $newName);
+            $data['foto'] = $newName;
         }
 
-        if ($this->beritaModel->update($id, $data)) {
-            session()->setFlashdata('success', 'Data Berita Berhasil diupdate!');
-        } else {
-            session()->setFlashdata('error', 'Gagal mengupdate data berita.');
-        }
-
+        $this->beritaModel->update($id, $data);
+        session()->setFlashdata('success', 'Berita berhasil diperbarui.');
         return redirect()->to('/berita');
     }
 
+    /**
+     * Hapus berita
+     */
     public function delete($id)
     {
         $berita = $this->beritaModel->find($id);
+
         if (!$berita) {
-            return redirect()->to('/berita')->with('error', 'Berita not found.');
+            return redirect()->to('/berita')->with('error', 'Berita tidak ditemukan.');
         }
 
-        if ($this->beritaModel->delete($id)) {
-            session()->setFlashdata('success', 'Data Berita Berhasil dihapus!');
-        } else {
-            session()->setFlashdata('error', 'Gagal menghapus data berita.');
-        }
-
+        $this->beritaModel->delete($id);
+        session()->setFlashdata('success', 'Berita berhasil dihapus.');
         return redirect()->to('/berita');
     }
 }

@@ -32,7 +32,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <!-- form start -->
-                            <form action="<?= base_url('/produk/save'); ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?= base_url('/produk/store'); ?>" method="post" enctype="multipart/form-data">
                                 <?= csrf_field(); ?>
                                 <div class="card-body">
                                     <div class="form-group">
@@ -67,6 +67,21 @@
                                             </div>
                                         <?php endif; ?>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="jenis_produk">Jenis Produk</label>
+                                        <select class="form-control <?= (session('errors.jenis_produk')) ? 'is-invalid' : ''; ?>" id="jenis_produk" name="jenis_produk">
+                                            <option value="makanan">Makanan</option>
+                                            <option value="minuman">Minuman</option>
+                                            <option value="lainnya">Lainnya</option>
+                                        </select>
+                                        <?php if (session('errors.jenis_produk')) : ?>
+                                            <div class="invalid-feedback">
+                                                <?= session('errors.jenis_produk'); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        </div>
+
                                     <div class="form-group">
                                         <label for="deskripsi">Deskripsi</label>
                                         <textarea class="form-control <?= (session('errors.deskripsi')) ? 'is-invalid' : ''; ?>" id="deskripsi" name="deskripsi" placeholder="deskripsi Produk"><?= old('deskripsi'); ?></textarea>
@@ -86,10 +101,9 @@
                                         <?php endif; ?>
                                     </div>
 
-
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary">Submit</button>
-                                        <a href="/news" class="btn btn-secondary">Kembali</a>
+                                        <a href="/produk" class="btn btn-secondary">Kembali</a>
                                     </div>
                             </form>
                         </div>

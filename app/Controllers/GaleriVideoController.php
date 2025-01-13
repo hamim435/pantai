@@ -49,7 +49,7 @@ class GaleriVideoController extends BaseController
     }
     public function index()
     {
-        
+        dd('hamim babi');   
         $video = $this->videoModel->findAll();
         
         $data = [

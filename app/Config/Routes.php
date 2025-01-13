@@ -40,7 +40,8 @@ $routes->get('/page-gallery', 'GaleriFotoController::page_gallery');
 $routes->get('/halaman-galeri-video', 'GaleriVideoController::pageVideoGallery');
 // $routes->get('/page-news', 'BeritaController::pageNews');
 $routes->get('/halaman-berita', 'BeritaController::pageNews');
-// $routes->get('/page-produk', 'ProdukController::pageProduk');
+
+$routes->get('/page-produk', 'ProdukController::pageProduk');
 $routes->get('/halaman-berita/(:any)', 'BeritaController::pageDetailNews/$1');
 $routes->get('/halaman-kontak', 'KontakController::pageKontak');
 // $routes->get('/page-structure', 'ProfileController::StructureOrganization');
@@ -99,18 +100,20 @@ $routes->post('/kontak/update/(:num)', 'KontakController::update/$1');
 $routes->get('/kontak/delete/(:num)', 'KontakController::delete/$1');
 
 // Produk
-// $routes->get('/produk', 'ProdukController::index');
-// $routes->get('/produk/create', 'ProdukController::create');
-// $routes->post('/produk/save', 'ProdukController::save');
-// $routes->get('/produk/edit/(:num)', 'ProdukController::edit/$1');
-// $routes->post('/produk/update/(:num)', 'ProdukController::update/$1');
-// $routes->get('/produk/delete/(:num)', 'ProdukController::delete/$1');
+ $routes->get('/produk', 'ProdukController::index');
+ $routes->get('/produk/tambah', 'ProdukController::create');
+ $routes->post('/produk/store', 'ProdukController::store');
+ $routes->get('/produk/edit/(:num)', 'ProdukController::edit/$1');
+ $routes->post('/produk/update/(:num)', 'ProdukController::update/$1');
+ $routes->get('/produk/delete/(:num)', 'ProdukController::delete/$1');
+
+ // jenis produk
+ $routes->get('/page-produk/(:segment)', 'ProdukController::pageProduk/$1');
+ $routes->get('economy', 'ProdukController::economy');
 
 // Login
 $routes->get('/login', 'AuthController::login');
 $routes->post('/auth/processLogin', 'AuthController::processLogin');
-$routes->get('/logout', 'AuthController::logout');
-
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -63,7 +63,7 @@
                                             </td>
                                             <td>
                                                 <a href="<?= base_url('/video/ubah/' . $row['id']); ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                <a href="<?= base_url('/video/ubah/' . $row['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Berita Ini?')">Delete</a>
+                                                <a href="<?= base_url('/video/delete/' . $row['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Berita Ini?')">Delete</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -1,4 +1,4 @@
----
+php---
 layout: page
 title: Expandable Table Plugin
 ---
